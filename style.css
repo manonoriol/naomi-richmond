@@ -1,0 +1,42 @@
+html, body {
+  margin : 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  color: black;
+  font-family: helvetica;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+nav {
+  height: 50px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 20px 0 20px;
+}
+
+nav > a {
+text-decoration: none;
+cursor: pointer;
+color: black;
+}
+
+.description {
+  height: 200px;
+}
+
+.grid {
+   display: grid;
+   grid-gap: 150px;
+   grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+   grid-auto-rows: 200px;
+}
+
+
+.grid-item img {
+  display: block;
+  max-width: 100%;
+}
