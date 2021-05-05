@@ -5,6 +5,7 @@ body {
   width: 100%;
   height: 100vh;
   font-family: "Monument Extended", sans-serif;
+  overflow-x: hidden;
 }
 
 /* nav  */
@@ -18,11 +19,11 @@ body {
   flex-wrap: wrap;
   justify-content: flex-end;
   align-items: center;
-  cursor: pointer;
 }
 
 .menu-item {
   flex: 1;
+  cursor: pointer;
 }
 
 .menu-left {
@@ -47,8 +48,12 @@ body {
 }
 
 .description {
+  background-color: white;
   width: 100%;
-  height: 300px;
+  height: 100px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
 }
 
 .container {
@@ -62,6 +67,14 @@ body {
   }
 
 img {
-  width: 80%;
+  width: 70%;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
 }
 
