@@ -17,7 +17,7 @@
        </div>
      </nav>
 <div class="home">
-  <div class="description"></div>
+  <div class="description"><p>poopie</p></div>
    <div class="container">
      <div class="item item-1"><img class="image" src="photos/photo-1.jpeg"></div>
      <div class="item item-2"><img class="image" src="photos/photo-2.jpeg"></div>
@@ -32,11 +32,20 @@
 
 
 
-
-
-
-
-
   </body>
-<script></script>
+<script>
+
+const photos = document.querySelectorAll('.image');
+
+function hidePhotos() {
+
+    this.classList.toggle("hide");
+};
+
+photos.forEach(photo => {
+  console.log(photo)
+  photo.addEventListener('onmouseover', hidePhotos);
+})
+
+</script>
 </html>
