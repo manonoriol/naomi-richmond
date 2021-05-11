@@ -17,35 +17,30 @@
        </div>
      </nav>
 <div class="home">
-  <div class="description"><p>poopie</p></div>
+  <div class="description"><p>description</p></div>
    <div class="container">
-     <div class="item item-1"><img class="image" src="photos/photo-1.jpeg"></div>
-     <div class="item item-2"><img class="image" src="photos/photo-2.jpeg"></div>
-     <div class="item item-3"><img class="image" src="photos/photo-3.jpeg"></div>
-     <div class="item item-4"><img class="image" src="photos/photo-4.jpeg"></div>
-     <div class="item item-5"><img class="image" src="photos/photo-5.jpeg"></div>
-     <div class="item item-6"><img class="image" src="photos/photo-6.jpeg"></div>
-     <div class="item item-7"><img class="image" src="photos/photo-7.jpeg"></div>
-     <div class="item item-8"><img class="image" src="photos/photo-8.jpeg"></div>
+     <div class="item item-1"><img src="photos/photo-1.jpeg"></div>
+     <div class="item item-2"><img src="photos/photo-2.jpeg"></div>
+     <div class="item item-3"><img src="photos/photo-3.jpeg"></div>
+     <div class="item item-4"><img src="photos/photo-4.jpeg"></div>
+     <div class="item item-5"><img src="photos/photo-5.jpeg"></div>
+     <div class="item item-6"><img src="photos/photo-6.jpeg"></div>
+     <div class="item item-7"><img src="photos/photo-7.jpeg"></div>
+     <div class="item item-8"><img src="photos/photo-8.jpeg"></div>
    </div>
 </div>
 
 
 
   </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-
-const photos = document.querySelectorAll('.image');
-
-function hidePhotos() {
-
-    this.classList.toggle("hide");
-};
-
-photos.forEach(photo => {
-  console.log(photo)
-  photo.addEventListener('onmouseover', hidePhotos);
+  $(".item").on("mouseenter", function(){
+  $(".item").addClass("hide");
+  $(this).removeClass("hide");
 })
-
+$(".item").on("mouseleave", function(){
+  $(".item").removeClass("hide");
+})
 </script>
 </html>
