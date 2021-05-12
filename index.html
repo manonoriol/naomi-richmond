@@ -17,16 +17,16 @@
        </div>
      </nav>
 <div class="home">
-  <div class="description"><p>description</p></div>
+  <div id="description"><p></p></div>
    <div class="container">
-     <div class="item item-1"><img src="photos/photo-1.jpeg"></div>
-     <div class="item item-2"><img src="photos/photo-2.jpeg"></div>
-     <div class="item item-3"><img src="photos/photo-3.jpeg"></div>
-     <div class="item item-4"><img src="photos/photo-4.jpeg"></div>
-     <div class="item item-5"><img src="photos/photo-5.jpeg"></div>
-     <div class="item item-6"><img src="photos/photo-6.jpeg"></div>
-     <div class="item item-7"><img src="photos/photo-7.jpeg"></div>
-     <div class="item item-8"><img src="photos/photo-8.jpeg"></div>
+     <div class="item item-1"><img class="image" src="photos/photo-1.jpeg" onmouseover="changeText('Poopie1 Magazine, 2019')" onmouseout="defaultText()"></div>
+     <div class="item item-2"><img class="image" src="photos/photo-2.jpeg" onmouseover="changeText('Poopie2 Magazine, 2019')" onmouseout="defaultText()"></div>
+     <div class="item item-3"><img class="image" src="photos/photo-3.jpeg" onmouseover="changeText('Poopie3 Magazine, 2019')" onmouseout="defaultText()"></div>
+     <div class="item item-4"><img class="image" src="photos/photo-4.jpeg" onmouseover="changeText('Poopie4 Magazine, 2019')" onmouseout="defaultText()"></div>
+     <div class="item item-5"><img class="image" src="photos/photo-5.jpeg" onmouseover="changeText('Poopie5 Magazine, 2019')" onmouseout="defaultText()"></div>
+     <div class="item item-6"><img class="image" src="photos/photo-6.jpeg" onmouseover="changeText('Poopie6 Magazine, 2019')" onmouseout="defaultText()"></div>
+     <div class="item item-7"><img class="image" src="photos/photo-7.jpeg" onmouseover="changeText('Poopie7 Magazine, 2019')" onmouseout="defaultText()"></div>
+     <div class="item item-8"><img class="image" src="photos/photo-8.jpeg" onmouseover="changeText('Poopie8 Magazine, 2019')" onmouseout="defaultText()"></div>
    </div>
 </div>
 
@@ -35,12 +35,27 @@
   </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-  $(".item").on("mouseenter", function(){
-  $(".item").addClass("hide");
+  $(".image").on("mouseenter", function(){
+  $(".image").addClass("hide");
   $(this).removeClass("hide");
 })
-$(".item").on("mouseleave", function(){
-  $(".item").removeClass("hide");
+$(".image").on("mouseleave", function(){
+  $(".image").removeClass("hide");
 })
+</script>
+
+<script>
+  function changeText(text)
+   {
+       const display = document.getElementById('description');
+       // display.innerHTML = "";
+       display.innerHTML = text;
+   }
+
+   function defaultText()
+   {
+       const display = document.getElementById('description');
+       display.innerHTML = " ";
+   }
 </script>
 </html>
