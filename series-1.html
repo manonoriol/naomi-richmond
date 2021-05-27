@@ -20,12 +20,35 @@
         </div>
        </div>
      </nav>
-<div class="series-1-container">
-  <div class="series-1">
-    <p>gallery</p>
+<div class="series-container">
+  <div class="slider">
+    <img src="photos/photo-1.jpeg" class="img" alt="">
+    <img src="photos/photo-7.jpeg" class="img" alt="">
+    <img src="photos/photo-8.jpeg" class="img" alt="">
   </div>
+</div>
 
+<script src="js/scrollmagic/uncompressed/ScrollMagic.js"></script>
+<script>
+  let imgArr = document.querySelectorAll(".img");
+  imgArr.forEach(function(e, index) {
+    e.style.left = 80 * index + "%";
+  })
 
+  var controller = new ScrollMagic.Controller(); //creating scroll magic controller
+  var horizontalSlide1 = new TimelineMax();
+  .to(".slider", 1,{left:((imgArr.length) * -80) + "%", ease: Power0.easeNone}) // moving slider
 
+  new ScrollMagic.Scene({
+    triggerElement: ".series-container",
+    triggerHook: "onleave",
+    duration: "600%" //move speed
+  })
+
+   .setPin(".series-container") //freeze container
+   .setTween(horizontalSlide1) // append animation to scrolling event
+   .addTo(controller)
+
+</script>
 </body>
 </html>
