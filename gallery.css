@@ -1,0 +1,35 @@
+body {
+  height: 80vh;
+}
+
+.series-container {
+  display: flex;
+  flex: no-wrap;
+}
+
+.slider {
+  flex-shrink: 0;
+  width: 100vh;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider > img {
+  width: 50%;
+}
+
+/*.slider--1 {
+  background-color: green;
+  color: white;
+}
+.section--2 {
+  background-color: #e4002b;
+  color: white;
+}
+.section--3 {
+  background-color: black;
+  color: white;
+}
+*/
