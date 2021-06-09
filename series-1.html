@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>naomi ngoo richmond</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gallery.css">
   </head>
 
   <body>
@@ -20,35 +21,54 @@
         </div>
        </div>
      </nav>
-<div class="series-container">
-  <div class="slider">
-    <img src="photos/photo-1.jpeg" class="img" alt="">
-    <img src="photos/photo-7.jpeg" class="img" alt="">
-    <img src="photos/photo-8.jpeg" class="img" alt="">
+
+  <div class="series-container">
+    <section class="slider slider--1">
+      <img src="photos/photo-1.jpeg" class="img" alt="">
+    </section>
+    <section class="slider slider--2">
+      <img src="photos/photo-7.jpeg" class="img" alt="">
+    </section>
+    <section class="slider slider--3">
+      <img src="photos/photo-8.jpeg" class="img" alt="">
+    </section>
   </div>
-</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
 
-<script src="js/scrollmagic/uncompressed/ScrollMagic.js"></script>
-<script>
-  let imgArr = document.querySelectorAll(".img");
-  imgArr.forEach(function(e, index) {
-    e.style.left = 80 * index + "%";
-  })
+    const sections = gsap.utils.toArray("section");
+    let maxWidth = 0;
 
-  var controller = new ScrollMagic.Controller(); //creating scroll magic controller
-  var horizontalSlide1 = new TimelineMax();
-  .to(".slider", 1,{left:((imgArr.length) * -80) + "%", ease: Power0.easeNone}) // moving slider
+    const getMaxWidth = () => {
+      maxWidth = 100;
+      sections.forEach((section) => {
+        maxWidth += section.offsetWidth;
+      })
+    };
+    getMaxWidth();
+    ScrollTrigger.addEventListener("refreshInit", getMaxWidth);
 
-  new ScrollMagic.Scene({
-    triggerElement: ".series-container",
-    triggerHook: "onleave",
-    duration: "600%" //move speed
-  })
+    gsap.to(sections, {
+      x: () => `-${maxWidth - window.innerWidth}`,
+      ease: "linear",
+      scrollTrigger: {
+        trigger: "body",
+        pin: true,
+        scrub: true,
+        end: () => `+=${maxWidth}`,
+        invalidateOnRefresh: true
+      }
+    });
 
-   .setPin(".series-container") //freeze container
-   .setTween(horizontalSlide1) // append animation to scrolling event
-   .addTo(controller)
-
-</script>
+    sections.forEach((sct, i) => {
+      ScrollTrigger.create({
+        trigger: sct,
+        start: () => 'top top-=' + (sct.offsetLeft - window.innerWidth/2) * (maxWidth / (maxWidth - window.innerWidth)),
+        end: () => '+=' + sct.offsetWidth * (maxWidth / (maxWidth - window.innerWidth))
+      });
+    });
+  </script>
 </body>
 </html>
