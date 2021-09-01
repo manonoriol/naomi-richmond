@@ -148,12 +148,13 @@ img {
   display: flex;
   text-align: justify;
   line-height: 2rem;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 }
 
 .about {
   width: 80%;
+  padding-left: 145px;
 }
 
 /*contact page*/
@@ -164,12 +165,13 @@ img {
   display: flex;
   text-align: justify;
   line-height: 2rem;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 }
 
 .contact {
   width: 80%;
+  padding-left: 120px;
 }
 
 .contact > ul {
